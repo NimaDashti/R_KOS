@@ -1,16 +1,16 @@
-h=read.table("E:/FUM/ارشد/ترم3/محاسبات 2/HEJAZI.TXT")
+h=read.table(".../HEJAZI.TXT")
 head(h)
 str(h)
 install.packages("data.table")
 library(data.table)
 install.packages("readxl")
 library(readxl)
-hx=read_excel('E:/FUM/ارشد/ترم3/محاسبات 2/HEJAZI.xls')
+hx=read_excel('.../HEJAZI.xls')
 str(hx)
-co2=read.csv('E:/FUM/ارشد/ترم3/محاسبات 2/data-co2.csv')
+co2=read.csv('.../data-co2.csv')
 str(co2)
 library(data.table)
-fco2=fread('E:/FUM/ارشد/ترم3/محاسبات 2/data-co2.csv')
+fco2=fread('.../data-co2.csv')
 head(fco2)
 str(fco2)
 co2[1]
@@ -92,10 +92,10 @@ par(mfrow=c(1,1))
 X11(x[,plot(height,weight,col=unhealth+3)])
 
 
-h1=read.table("E:/FUM/ارشد/ترم3/محاسبات 2/HEJAZI.TXT")
+h1=read.table(".../HEJAZI.TXT")
 head(h1)
 library(readxl)
-h2=read_excel('E:/FUM/ارشد/ترم3/محاسبات 2/HEJAZI.xls',col_names = F)
+h2=read_excel('.../HEJAZI.xls',col_names = F)
 head(h2)
 h1$V4
 h2$...4
@@ -192,7 +192,7 @@ for(i in unique(hd$V1)){
 
 install.packages("data.table")
 library(data.table)
-h3=fread('E:/FUM/ارشد/ترم3/محاسبات 2/CAR DETAILS FROM CAR DEKHO.csv')
+h3=fread('.../CAR DETAILS FROM CAR DEKHO.csv')
 head(h3)
 str(h3)
 ncol(h3)
@@ -253,7 +253,7 @@ hb
 sum( is.na(hb$sqrt_root) )
 
 
-#داده های کوید
+#Data Covid
 
 #1
 
@@ -321,6 +321,9 @@ barplot(table(cv$continent),las=2,horiz=T)
 
 #12
 
+names(Filter(function(x) x > 1, table(cv$name)))
+sum(table(cv$...>1)
+
 install.packages("openxlsx")
 
 #23/08/1401
@@ -329,15 +332,15 @@ install.packages("officer")
 library(officer)
 library(dplyr)
 
-#تمرین ورد نویسی
+#Word
 
 shetab_report<-read_docx()%>%
   body_end_section_continuous()
 for (i in unique(a$major)){
   shetab_report<-
-    body_add_fpar(shetab_report,fpar('مدیر محترم گروه',fp_p=fp_par(text.align = "right")))
+    body_add_fpar(shetab_report,fpar('...',fp_p=fp_par(text.align = "right")))
   shetab_report<-
-    body_add_fpar(shetab_report,fpar('با سلام و احترام',fp_par=fp_par(text.align = "right")))
+    body_add_fpar(shetab_report,fpar('...',fp_par=fp_par(text.align = "right")))
   shetab_report<-
     body_add_fpar(shetab_report,fpar('...',fp_p=fp_par(text.align = "right")))
   shetab_report<-
@@ -349,7 +352,7 @@ for (i in unique(a$major)){
 test=read_docx()
 test=body_add_fpar(test,fpar('This is a test.'))
 test=body_add_fpar(test,fpar(''))
-test=body_add_fpar(test,fpar('تعدادی عدد تصادفی از توزیع نرمال استاندارد را در دو متغیر می ریزیم',fp_p=fp_par(text.align = "right")))
+test=body_add_fpar(test,fpar('.....',fp_p=fp_par(text.align = "right")))
 test=body_add_fpar(test,fpar(''))
 y=rnorm(25)
 x=rnorm(25)
@@ -357,19 +360,19 @@ z=data.frame(x,y)
 test=body_add_table(test,z)
 test=test%>%
   body_add_break()
-test=body_add_fpar(test,fpar('نمودار پراکنش دو متغیر را رسم کنید',fp_p=fp_par(text.align = "right")))
+test=body_add_fpar(test,fpar('....',fp_p=fp_par(text.align = "right")))
 test=body_add_plot(test,plot(x,y,col=5))
 test=body_add_fpar(test,fpar(''))
 test=body_add_fpar(test,fpar('The end'))
-print(test,target='E:/FUM/ارشد/ترم3/محاسبات 2/Nima2.docx')
+print(test,target='.../Nima2.docx')
 
 for(i in 1:1000){
-  jpeg(paste('D:/FUM/ارشد/ترم3/محاسبات 2/new',i,'jpg',sep =''));
+  jpeg(paste('.../new',i,'jpg',sep =''));
   hist(rnorm(100));
   dev.off()
 }
 
-#کوییز ورد دشتی
+#Word_D
 
 install.packages("readxl")
 library(readxl)
@@ -400,7 +403,7 @@ Dashti=body_add_table(Dashti,n)
 print(Dashti,target='E:/FUM/ارشد/ترم3/محاسبات 2/Dashti2.docx')
 
 
-#تمرین پاورپوینت نویسی
+#Power_point
 
 doc_1 <- read_pptx()
 doc_1 <- add_slide(doc_1, layout = "Two Content", master = "Office Theme")
@@ -417,7 +420,7 @@ doc_1 <- add_slide(doc_1)
 doc_1 <- ph_with( doc_1, anyplot,   location = ph_location_fullsize(),   bg = "#006699")
 print(doc_1,'E:/FUM/ارشد/ترم3/محاسبات 2/test.pptx')
 
-#تکلیف پاورپوینت دشتی
+#Power_point_D
 
 library(httr)
 library(jsonlite)
@@ -428,10 +431,10 @@ y=unlist(data$rates)
 
 test1=read_pptx()
 test1=add_slide(test1, layout = "Two Content", master = "Office Theme")
-test1=ph_with(x = test1, value = c("نام متغیر ها"), location = ph_location_type(type = "title") )
+test1=ph_with(x = test1, value = c("..."), location = ph_location_type(type = "title") )
 test1=ph_with(x = test1, value = names(data), location = ph_location_left() )
 test1=add_slide(test1, layout = "Two Content", master = "Office Theme")
-test1=ph_with(x = test1, value = c("نرخ بعضی از ارز ها"), location = ph_location_type(type = "title") )
+test1=ph_with(x = test1, value = c("..."), location = ph_location_type(type = "title") )
 test1=ph_with(x = test1, value = head(names(y)), location = ph_location_left())
 test1=ph_with(x = test1, value = head(y), location = ph_location_right())
 anyplot <- plot_instr(code = {
@@ -456,9 +459,9 @@ anyplot <- plot_instr(code = {
 test1=add_slide(test1)
 test1=ph_with( test1, anyplot, location = ph_location_fullsize(), bg = "#006699")
 
-print(test1,'E:/FUM/ارشد/ترم3/محاسبات 2/test1.pptx')
+print(test1,'.../test1.pptx')
 
-#تکلیف پاورپوینت احمدی
+#Power_point_A
 
 a=GET("https://open.er-api.com/v6/latest/USD")
 b=rawToChar(a$content)
@@ -495,9 +498,9 @@ test2 <- ph_with( test2, anyplot1,   location = ph_location_fullsize(),   bg = "
 
 test2 <- add_slide(test2)
 test2 <- ph_with( test2, anyplot,   location = ph_location_fullsize(),   bg = "#006699")
-print(test2,'E:/FUM/ارشد/ترم3/محاسبات 2/test2.pptx')
+print(test2,'.../test2.pptx')
 
-#تکلیف پاورپوینت حیدری 
+#Power_point_H 
 
 library(robustbase)
 library(httr)
@@ -532,7 +535,7 @@ print(pp_2,'C:\\Users\\4001395100\\Desktop\\test3.pptx')
 library(Rcmdr)
 
 
-#1401/09/07
+
 
 install.packages("BiocManager")
 ??BiocManager
@@ -551,13 +554,13 @@ mode(k$ap$data)
 dim(k$ap$data)
 length(k$ap$data)
 
-write.csv(k$ap$data,'E:/FUM/ارشد/ترم3/محاسبات 2/ap-data.csv')
-write.csv(k$tt$data,'E:/FUM/ارشد/ترم3/محاسبات 2/tt-data.csv')
-write.csv(k$mg$data,'E:/FUM/ارشد/ترم3/محاسبات 2/mg-data.csv')
+write.csv(k$ap$data,'.../ap-data.csv')
+write.csv(k$tt$data,'.../tt-data.csv')
+write.csv(k$mg$data,'.../mg-data.csv')
 
 install.packages('openxlsx')
 library(openxlsx)
-setwd('E:/FUM/ارشد/ترم3/محاسبات 2/')
+setwd('.../')
 write.xlsx(data.frame(k$ap$data),'ap.xlsx',sheet=1)
 write.xlsx(data.frame(k$mg$data),'ap.xlsx',Sheet=2)
 
@@ -582,7 +585,7 @@ library(HDtest)
 twoMeans(k$ap$data,k$tt$data)
 HDtest :: testMean(a,b)
 
-#1401/09/12
+
 
 library(rhdf5)
 h5ls(file.choose())
@@ -607,7 +610,7 @@ adjbox(k$ap$data,col=4)
 
 install.packages("rjson")
 library(rjson)
-mm=fromJSON(file="E:/FUM/ارشد/ترم3/محاسبات 2/Sample Json File with 500 Records.json")
+mm=fromJSON(file=".../Sample Json File with 500 Records.json")
 mm=fromJSON(file=file.choose())
 mm
 print(mm)
@@ -642,7 +645,7 @@ data$status
 data$data
 data$message
 
-#1401/9/14
+
 
 q=GET("https://open.er-api.com/v6/latest/USD")
 q
@@ -706,7 +709,7 @@ s <- function(x){
 }
 s("EUR")
 
-#1401/09/21
+
 
 install.packages("snow")
 library(snow)
@@ -746,7 +749,7 @@ a=update(a,c4)
 a=update(a,c5)
 summary(a)
 
-#کد های بالا به نتیجه خاصی نمیرسد :)
+#....NO
 
 library(biglm)
 library(DBI)
@@ -764,7 +767,9 @@ deviance(a)
 AIC(a)
 
 library(data.table)
-#داده های سانفرانسیسکو
+
+#Data_sunfrans
+
 a=fread(file.choose())
 dim(a)
 str(a)
@@ -788,7 +793,7 @@ for(i in 2:(length(j)-1))
 summary(k)
 
 
-#کد های پایین ران گرفته نشده است
+#....No
 
 a <- scan(w=list(""),file="C:/Users/4001395304/Desktop/bm.txt",n=1000000,skip=16000000)
 grep('e',a[[1]])
@@ -822,11 +827,11 @@ v2 <- unlist(aa[,2])
 v3 <- unlist(aa[,3])
 plot(v1,v2)
 
-#کد های بالا ران گرفته نشده است
+#...no
 
 install.packages("data.table")
 library(data.table)
-a <- fread(file="E:/FUM/ارشد/ترم3/محاسبات 2/bm.txt")
+a <- fread(file=".../bm.txt")
 install.packages("hexbin")
 library(hexbin)
 plot(hexbin(a$x,a$y))
